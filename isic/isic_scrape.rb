@@ -1,3 +1,5 @@
+# Scrapes all images from the ISIC archive.
+
 require 'open-uri'
 require 'json'
 
@@ -90,7 +92,7 @@ threads = batched_list.map do |list|
 
       begin
         File.open(image_file, 'wb') { |f| f.write(download_image(image_id)) }
-        # puts "Wrote image to file - #{image_file}."
+        puts "Wrote image to file - #{image_file}."
       rescue
         puts "Failed to grab #{image_id}."
         next
